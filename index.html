@@ -51,7 +51,7 @@
 			            </ul>
 				    </div>   
 			        <div class="content">
-			        	<nav class="navbar navbar-transparent">
+			        	<nav class="navbar navbar-transparent navbar-static-top">
 							<div class="container-fluid">
 								<div class="navbar-header">
 									<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse">
@@ -134,5 +134,10 @@
 		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/chartist/js/chartist.min.js"></script>
 		<script type="text/javascript" src="assets/js/custom.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				custom.initCharts();
+			});
+		</script>
 	</body>
 </html>
