@@ -4,6 +4,38 @@ body {
     height:100%;
 }
 
+.btn, .navbar .navbar-nav > li > a.btn {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+/*========================================= Global Styles ==============================================*/
+a:focus {
+    outline: inherit;
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: inherit;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    background-color: #d9853b;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #d9853b;
+    border-color: #d9853b;
+}
+
+.pagination>li>a, .pagination>li>span {
+    color: #333333;
+}
+
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    color: #74afad;
+}
+
 /*========================================= Navigation ==============================================*/
 .navbar.navbar-transparent a {
     color: #74afad;
@@ -163,4 +195,21 @@ body {
 
 .ct-series-b .ct-area {
     fill: #74afad;
+}
+
+/*========================================= DataTables ==============================================*/
+table.dataTable.dtr-column>tbody>tr>td.control:before, table.dataTable.dtr-column>tbody>tr>th.control:before {
+    font-family: 'FontAwesome';
+    line-height: 16px;
+    content: '\f067';
+    background-color: #d9853b;
+}
+
+table.dataTable.dtr-column>tbody>tr.parent td.control:before, table.dataTable.dtr-column>tbody>tr.parent th.control:before {
+    content: '\f068';
+    background-color: #74afad;
+}
+
+.form-group.custom-search-input-form-group {
+    padding-bottom: 2px;
 }
