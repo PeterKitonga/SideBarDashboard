@@ -149,44 +149,45 @@ custom = {
 		});
 
 		$('div.custom-filter').html('' +
-                '<div class="row">' +
-                    '<div class="col-sm-4">' +
-                        '<div class="dropdown category-dropdown pull-right"> ' +
-                            '<a href="#" class="btn btn-default dropdown-toggle category-text" data-toggle="dropdown">First Name ' +
-                                '<b class="caret"></b> ' +
-                            '</a> ' +
-                            '<ul class="dropdown-menu dropdown-menu-left"> ' +
-                                '<li><a href="#" class="category-selection" data-name="first-name" data-node="1">First Name</a></li> ' +
-                                '<li class="divider"></li> ' +
-                                '<li><a href="#" class="category-selection" data-name="last-name" data-node="2">Last Name</a></li> ' +
-                                '<li class="divider"></li> ' +
-                                '<li><a href="#" class="category-selection" data-name="position" data-node="3">Position</a></li> ' +
-                                '<li class="divider"></li> ' +
-                                '<li><a href="#" class="category-selection" data-name="office" data-node="4">Office</a></li> ' +
-                                '<li class="divider"></li> ' +
-                                '<li><a href="#" class="category-selection" data-name="age" data-node="5">Age</a></li> ' +
-                                '<li class="divider"></li> ' +
-                                '<li><a href="#" class="category-selection" data-name="start-date" data-node="6">Start Date</a></li> ' +
-                                '<li class="divider"></li> ' +
-                                '<li><a href="#" class="category-selection" data-name="salary" data-node="7">Salary</a></li> ' +
-                                '<li class="divider"></li> ' +
-                                '<li><a href="#" class="category-selection" data-name="extn" data-node="8">Extn</a></li> ' +
-                            '</ul> ' +
+            '<div class="row">' +
+                '<div class="col-sm-4">' +
+                    '<div class="dropdown category-dropdown pull-right"> ' +
+                        '<a href="#" class="btn btn-default dropdown-toggle category-text" data-toggle="dropdown">First Name ' +
+                            '<b class="caret"></b> ' +
+                        '</a> ' +
+                        '<ul class="dropdown-menu dropdown-menu-left"> ' +
+                            '<li><a href="#" class="category-selection" data-name="first-name" data-node="1">First Name</a></li> ' +
+                            '<li class="divider"></li> ' +
+                            '<li><a href="#" class="category-selection" data-name="last-name" data-node="2">Last Name</a></li> ' +
+                            '<li class="divider"></li> ' +
+                            '<li><a href="#" class="category-selection" data-name="position" data-node="3">Position</a></li> ' +
+                            '<li class="divider"></li> ' +
+                            '<li><a href="#" class="category-selection" data-name="office" data-node="4">Office</a></li> ' +
+                            '<li class="divider"></li> ' +
+                            '<li><a href="#" class="category-selection" data-name="age" data-node="5">Age</a></li> ' +
+                            '<li class="divider"></li> ' +
+                            '<li><a href="#" class="category-selection" data-name="start-date" data-node="6">Start Date</a></li> ' +
+                            '<li class="divider"></li> ' +
+                            '<li><a href="#" class="category-selection" data-name="salary" data-node="7">Salary</a></li> ' +
+                            '<li class="divider"></li> ' +
+                            '<li><a href="#" class="category-selection" data-name="extn" data-node="8">Extn</a></li> ' +
+                        '</ul> ' +
+                    '</div>' +
+                '</div>' +
+                '<div class="col-sm-6">' +
+                    '<form class="form-inline pull-right" id="search-form">' +
+                        '<div class="form-group custom-search-input-form-group">' +
+                            '<input type="text" class="form-control custom-search-input" name="phone" placeholder="Enter First Name" data-node="1">' +
                         '</div>' +
-                    '</div>' +
-                    '<div class="col-sm-6">' +
-                        '<form class="form-inline pull-right" id="search-form">' +
-                            '<div class="form-group custom-search-input-form-group">' +
-                                '<input type="text" class="form-control custom-search-input" name="phone" placeholder="Enter First Name" data-node="1">' +
-                            '</div>' +
-                        '</form>' +
-                    '</div>' +
-                    '<div class="col-sm-2">' +
-                        '<button type="button" class="btn btn-default pull-left reset-table-button" data-toggle="tooltip" data-placement="left" title="Reset table">' +
-                        	'<i class="fa fa-undo"></i>' +
-                        '</button>' +
-                    '</div>' +
-                '</div>');
+                    '</form>' +
+                '</div>' +
+                '<div class="col-sm-2">' +
+                    '<button type="button" class="btn btn-default pull-left reset-table-button" data-toggle="tooltip" data-placement="left" title="Reset table">' +
+                    	'<i class="fa fa-undo"></i>' +
+                    '</button>' +
+                '</div>' +
+            '</div>'
+        );
 
 		$('.category-selection').on('click', function (e) {
                 e.preventDefault();
@@ -210,6 +211,20 @@ custom = {
 	    $('.reset-table-button').on('click', function() {
             table.state.clear();
             window.location.reload();
+        });
+	}, 
+
+	initForms: function() {
+		$('#editor').summernote({
+			placeholder: 'Comments go here...'
+		});
+
+		$('#datetimepicker').datetimepicker({
+			format: 'L'
+		});
+
+		$('#timepicker').datetimepicker({
+            format: 'LT'
         });
 	}
 }
