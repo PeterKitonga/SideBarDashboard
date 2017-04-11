@@ -4,6 +4,12 @@ $(".push_menu").click(function(){
 
 $('[data-toggle="tooltip"]').tooltip();
 
+$(':file').on('change', function() {
+    var input = $(this), numFiles = input.get(0).files ? input.get(0).files.length : 1, label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+    $('.import-read').val(label);
+});
+
 custom = {
 	initCharts: function() {
 		// Pie Chart for Trending
@@ -226,5 +232,67 @@ custom = {
 		$('#timepicker').datetimepicker({
             format: 'LT'
         });
+	},
+
+	initCalendar: function() {
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+
+		var calendar = $('#calendar').fullCalendar({
+			customButtons: {
+				importEvents: {
+					text: 'Events Import',
+					click: function() {
+						var url = '/example/url';
+
+    					$('#import-form').attr('action', url);
+						$('#modal-import').modal('show');
+					}
+				}
+			},
+			header: {
+				left: 'agendaDay, agendaWeek, month, importEvents',
+				center: 'title',
+				right: 'today prev,next'
+			},
+			defaultView: 'month',
+			firstDay: 0,
+			weekNumbers: true,
+			events: [
+				{
+					title: 'Family Dinner',
+					start: '2017-04-14 20:00:00',
+					end: '2017-04-14 21:00:00'
+				},
+				{
+					title: 'Easter Cookout',
+					start: '2017-04-16 13:00:00',
+					end: '2017-04-16 16:00:00'
+				},
+				{
+					title: 'ABC meeting',
+					start: '2017-04-24 14:00:00',
+					end: '2017-04-24 15:00:00'
+				}
+			],
+			eventClick: function(event, element) {
+		        event.title = "CLICKED!";
+
+		        $('#calendar').fullCalendar('updateEvent', event);
+		    },
+		    selectable: true,
+		    selectHelper: true,
+		    select: function(start, end, allDay) {
+				var url = '/example/url';
+
+				$('#event-form').attr('action', url);
+				$('#modal-event').modal('show');
+
+				$('input[name="event-start"]').attr('value', start._d);
+				$('input[name="event-end"]').attr('value', end._d);
+			},
+		});
 	}
-}
+};

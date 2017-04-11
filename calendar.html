@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Muli" />
 		<link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/plugins/fullCalendar/css/fullcalendar.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/custom.css">
 	</head>
 	<body>
@@ -36,12 +37,12 @@
 			                        </a>
 			                    </li>
 			                    <li>
-			                        <a href="forms.html" class="active">Forms Components
+			                        <a href="forms.html">Forms Components
 			                        	<i class="fa fa-keyboard-o pull-right"></i>
 			                        </a>
 			                    </li>
 			                    <li>
-			                        <a href="calendar.html">Calendar 
+			                        <a href="calendar.html" class="active">Calendar 
 			                        	<i class="fa fa-calendar pull-right"></i>
 			                        </a>
 			                    </li>
@@ -83,7 +84,79 @@
 						</nav><!-- navbar -->
 			            <div class="col-md-12">
 			                <div class="row">
-			                	
+			                	<div class="col-sm-12">
+			                		<div id="calendar"></div>
+			                	</div>
+			                </div>
+			                <div class="row">
+			                	<div class="col-sm-12">
+			                		<div class="modal fade" id="modal-import" tabindex="-1" role="dialog">
+									    <div class="modal-dialog">
+									        <div class="modal-content">
+									            <div class="modal-header">
+									                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									                <h4 class="modal-title">Please Add File</h4>
+									            </div>
+									            <form action="" id="import-form" method="post" enctype="multipart/form-data">
+									                <div class="modal-body import-body">
+									                    <div class="input-group">
+									                        <label class="input-group-btn">
+									                                <span class="btn btn-default">
+									                                    Browse… <input type="file" style="display: none;" name="dat">
+									                                </span>
+									                        </label>
+									                        <input type="text" class="form-control import-read" readonly="">
+									                    </div>
+									                </div>
+									                <div class="modal-footer">
+									                    <button type="submit" class="btn btn-default">Submit</button>
+									                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+									                </div>
+									            </form>
+									        </div><!-- /.modal-content -->
+									    </div><!-- /.modal-dialog -->
+									</div><!-- /.modal -->
+			                	</div>
+			                </div>
+			                <div class="row">
+			                	<div class="col-sm-12">
+			                		<div class="modal fade" id="modal-event" tabindex="-1" role="dialog">
+									    <div class="modal-dialog">
+									        <div class="modal-content">
+									            <div class="modal-header">
+									                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									                <h4 class="modal-title">Please Add Event</h4>
+									            </div>
+									            <form action="" id="event-form" method="post" enctype="multipart/form-data">
+									                <div class="modal-body event-body">
+									                    <div class="input-group">
+															<span class="input-group-addon" id="event-name">
+																<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+															</span>
+															<input type="text" name="event-name" class="form-control" placeholder="Event Name" aria-describedby="event-name">
+														</div>
+														<div class="input-group">
+															<span class="input-group-addon" id="event-start">
+																<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+															</span>
+															<input type="text" name="event-start" class="form-control" placeholder="Event Name" aria-describedby="event-start">
+														</div>
+														<div class="input-group">
+															<span class="input-group-addon" id="event-end">
+																<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+															</span>
+															<input type="text" name="event-end" class="form-control" placeholder="Event Name" aria-describedby="event-end">
+														</div>
+									                </div>
+									                <div class="modal-footer">
+									                    <button type="submit" class="btn btn-default">Submit</button>
+									                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+									                </div>
+									            </form>
+									        </div><!-- /.modal-content -->
+									    </div><!-- /.modal-dialog -->
+									</div><!-- /.modal -->
+			                	</div>
 			                </div>
 			            </div><!-- col-md-12 -->
 			        </div><!-- content -->
@@ -93,10 +166,12 @@
 
 		<script type="text/javascript" src="assets/plugins/jquery/jquery-3.1.0.min.js"></script>
 		<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="assets/plugins/bootstrapDateTimePicker/js/moment.js"></script>
+		<script type="text/javascript" src="assets/plugins/fullCalendar/js/fullcalendar.min.js"></script>
 		<script type="text/javascript" src="assets/js/custom.js"></script>
 		<script type="text/javascript">
 			$(function() {
-				custom.initDatatables();
+				custom.initCalendar();
 			});
 		</script>
 	</body>
